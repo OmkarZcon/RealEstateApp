@@ -4,18 +4,17 @@ class Program
 {
     static void Main(string[] args)
     {
-<<<<<<< HEAD
+
         // Create Brand objects
-=======
->>>>>>> prod
+
         var brand1 = new Brand { BrandId = Guid.NewGuid(), BrandName = "Ruturaj construction" };
         var brand2 = new Brand { BrandId = Guid.NewGuid(), BrandName = "Ashiyana village" };
 
         // Create Agency objects
         var agency1 = new Agency { AgencyId = Guid.NewGuid(), AgencyName = " Eon IT-Pune ", AgencyPincode = "410203", BrandId = brand1.BrandId };
         var agency2 = new Agency { AgencyId = Guid.NewGuid(), AgencyName = "Bandra Mumbai", AgencyPincode = "410222", BrandId = brand2.BrandId };
-<<<<<<< HEAD
-=======
+
+
 
         // Print deatails using loops
 
