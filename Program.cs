@@ -5,12 +5,12 @@ class Program
     static void Main(string[] args)
     {
         // Create Brand objects
-        var brand1 = new Brand { BrandId = Guid.NewGuid(), BrandName = "Dream Homes Realty" };
-        var brand2 = new Brand { BrandId = Guid.NewGuid(), BrandName = "Elite Estates" };
+        var brand1 = new Brand { BrandId = Guid.NewGuid(), BrandName = "Ruturaj construction" };
+        var brand2 = new Brand { BrandId = Guid.NewGuid(), BrandName = "Ashiyana village" };
 
         // Create Agency objects
-        var agency1 = new Agency { AgencyId = Guid.NewGuid(), AgencyName = "Downtown Office", AgencyPincode = "14251", BrandId = brand1.BrandId };
-        var agency2 = new Agency { AgencyId = Guid.NewGuid(), AgencyName = "Suburban Branch", AgencyPincode = "14524", BrandId = brand2.BrandId };
+        var agency1 = new Agency { AgencyId = Guid.NewGuid(), AgencyName = " Eon IT-Pune ", AgencyPincode = "410203", BrandId = brand1.BrandId };
+        var agency2 = new Agency { AgencyId = Guid.NewGuid(), AgencyName = "Bandra Mumbai", AgencyPincode = "410222", BrandId = brand2.BrandId };
 
         // Print details
         Console.WriteLine("Brands:");
