@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RealEstateApp.Models
 {
-    internal class Brand
+    public class Brand
     {
         public Guid BrandId { get; set; } 
         public required string   BrandName { get; set; }
