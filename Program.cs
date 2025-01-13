@@ -9,11 +9,12 @@ class Program
         var brand2 = new Brand { BrandId = Guid.NewGuid(), BrandName = "Elite Estates" };
 
         // Create Agency objects
-        var agency1 = new Agency { AgencyId = Guid.NewGuid(), AgencyName = "Downtown Office", AgencyPincode = "14251", BrandId = brand1.BrandId };
+        var agency1 = new Agency { AgencyId = Guid.NewGuid(), AgencyName = "Downtown Offfice", AgencyPincode = "14251", BrandId = brand1.BrandId };
         var agency2 = new Agency { AgencyId = Guid.NewGuid(), AgencyName = "Suburban Branch", AgencyPincode = "14524", BrandId = brand2.BrandId };
 
         // Print details
         Console.WriteLine("Brands:");
+
         Console.WriteLine($"ID: {brand1.BrandId}, Name: {brand1.BrandName}");
         Console.WriteLine($"ID: {brand2.BrandId}, Name: {brand2.BrandName}");
 
