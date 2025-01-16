@@ -1,26 +1,76 @@
-﻿using RealEstateApp.Models; // Import the namespace where Brand and Agency are defined
-
+﻿using RealEstateApp.Models;
+using System;
 class Program
 {
     static void Main(string[] args)
     {
-        // Create Brand objects
-        var brand1 = new Brand { BrandId = Guid.NewGuid(), BrandName = "Dream Homes Realty" };
-        var brand2 = new Brand { BrandId = Guid.NewGuid(), BrandName = "Elite Estates" };
+        List<Brand> brands = new List<Brand>();
+        List<Agency> agencies = new List<Agency>();
 
-        // Create Agency objects
-        var agency1 = new Agency { AgencyId = Guid.NewGuid(), AgencyName = "Downtown Offfice", AgencyPincode = "14251", BrandId = brand1.BrandId };
-        var agency2 = new Agency { AgencyId = Guid.NewGuid(), AgencyName = "Suburban Branch", AgencyPincode = "14524", BrandId = brand2.BrandId };
+        // Get number of brands from user
+        Console.Write("Enter the number of brands to add: ");
+        int brandCount = int.Parse(Console.ReadLine());
 
-        // Print details
-        Console.WriteLine("Brands:");
+        // Input brands
+        for (int i = 0; i < brandCount; i++)
+        {
+            Console.WriteLine($"\nEnter details for Brand #{i + 1}:");
+            Console.Write("Brand Name: ");
+            string brandName = Console.ReadLine();
 
-        Console.WriteLine($"ID: {brand1.BrandId}, Name: {brand1.BrandName}");
-        Console.WriteLine($"ID: {brand2.BrandId}, Name: {brand2.BrandName}");
+            brands.Add(new Brand
+            {
+                BrandId = Guid.NewGuid(),
+                BrandName = brandName
+            });
+        }
 
+        // Get number of agencies from user
+        Console.Write("\nEnter the number of agencies to add: ");
+        int agencyCount = int.Parse(Console.ReadLine());
+
+        // Input agencies
+        for (int i = 0; i < agencyCount; i++)
+        {
+            Console.WriteLine($"\nEnter details for Agency #{i + 1}:");
+            Console.Write("Agency Name: ");
+            string agencyName = Console.ReadLine();
+
+            Console.Write("Agency Pincode: ");
+            string agencyPincode = Console.ReadLine();
+
+            // Show available brands
+            Console.WriteLine("\nAvailable Brands:");
+            for (int j = 0; j < brands.Count; j++)
+            {
+                Console.WriteLine($"{j + 1}. {brands[j].BrandName}");
+            }
+
+            Console.Write("Select brand number: ");
+            int brandIndex = int.Parse(Console.ReadLine()) - 1;
+
+            agencies.Add(new Agency
+            {
+                AgencyId = Guid.NewGuid(),
+                AgencyName = agencyName,
+                AgencyPincode = agencyPincode,
+                BrandId = brands[brandIndex].BrandId
+            });
+        }
+
+        // Print all brands
+        Console.WriteLine("\nBrands:");
+        foreach (var brand in brands)
+        {
+            Console.WriteLine($"ID: {brand.BrandId}, Name: {brand.BrandName}");
+        }
+
+        // Print all agencies 
         Console.WriteLine("\nAgencies:");
-        Console.WriteLine($"ID: {agency1.AgencyId}, Name: {agency1.AgencyName}, Brand ID: {agency1.BrandId}, PinCode: {agency1.AgencyPincode}");
-
-        Console.WriteLine($"ID: {agency2.AgencyId}, Name: {agency2.AgencyName}, Brand ID: {agency2.BrandId}, PinCode: {agency2.AgencyPincode}");
+        foreach (var agency in agencies)
+        {
+            Console.WriteLine($"ID: {agency.AgencyId}, Name: {agency.AgencyName}, " +
+                            $"BrandId: {agency.BrandId}, PinCode: {agency.AgencyPincode}");
+        }
     }
 }
